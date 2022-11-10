@@ -1,4 +1,4 @@
-/* calcOrig.y fichero para la practica 3 de Teoria de la Computacion */
+/* calcOrig.y fichero para la practica 3 de Teoria de la Computacion  */
 %{
 #include <stdio.h>
 %}

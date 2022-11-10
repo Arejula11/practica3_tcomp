@@ -1,4 +1,4 @@
-/* calcOrig.l fichero para la practica 3 de Teoria de la Computacion */
+/* calcOrig.l fichero para la practica 3 de Teoria de la Computacion  */
 %{
 #include "y.tab.h"
 %}
