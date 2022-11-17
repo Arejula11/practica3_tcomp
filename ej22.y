@@ -1,6 +1,7 @@
 /* calcMejor.y fichero para la practica 3 de Teoria de la Computacion   */
 %{
 #include <stdio.h>
+int b;
 %}
 %token NUMBER EOL CP OP
 %start calclist
@@ -11,11 +12,11 @@
 %%
 
 calclist : /* nada */
-	| calclist exp EOL { printf("=%d\n", $2); }
-    | calclist exp PC EOL { printf("=%d\n", $2); }
+    | calclist defvar
+    | calclist exp PC EOL { printf("\n=%d\n", $2); }
+    | calclist exp PC VAR EOL { printf("\n=%d\n", funcion($2, b)); }
 	;
-exp : 	defvar exp PC VAR{ $$ = funcion($2, $1);}
-    | factor 
+exp :  factor 
 	| exp ADD factor { $$ = $1 + $3; }
 	| exp SUB factor { $$ = $1 - $3; }	
 	;
@@ -24,10 +25,10 @@ factor :  factor MUL factorsimple { $$ = $1 * $3; }
 		| factorsimple 
 		;
 factorsimple : 	OP exp CP { $$ = $2; }
-		| NUMBER {printf("%d\n", $1);}
-        | PC {printf("hola");}
+		| NUMBER 
+        | PC 
 		;
-defvar :  VAR EQ NUMBER EOL { $$ = $3;}
+defvar :  VAR EQ NUMBER EOL { b = $3;printf("\n");}
 %%
 int yyerror(char* s) {
    printf("\n%s\n", s);

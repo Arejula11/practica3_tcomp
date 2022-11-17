@@ -6,11 +6,11 @@
 "+"	{printf("%s",yytext);return(ADD);}
 "-"	{printf("%s",yytext);return(SUB);}
 "*"	{printf("%s",yytext);return(MUL);}
-"/"	{printf("%s",yytext);return(DIV);}
+"/"	printf("%s",yytext);{return(DIV);}
 "("	{printf("%s",yytext);return(OP);}
 ")"	{printf("%s",yytext);return(CP);}
 "=" {printf("%s",yytext);return(EQ);}
-";" {printf("%s",yytext);return(PC);}
+":" {printf("%s",yytext);return(PP);}
 [0-9]+	{printf("%s",yytext);yylval = atoi(yytext); return(NUMBER);}
 [a-z]+  {printf("%s",yytext);return(VAR);}
 \n	{return(EOL);}
