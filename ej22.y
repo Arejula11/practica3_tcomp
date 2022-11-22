@@ -35,7 +35,7 @@ int yyerror(char* s) {
    return 0;
 }
 int funcion(int num ,int b){
-    int vector[100];//yylen?
+    int vector[100];
     int i=0;
     int res=0;
     while(num>0){
@@ -47,8 +47,9 @@ int funcion(int num ,int b){
     for(int j=i; j>=0; j--){
         long aux=1;
         for(int x=j; x>0; x--){
-            aux=10*aux;
+           aux=10*aux;
         }
+        
         res+=vector[j]*aux;
     }
     return res;

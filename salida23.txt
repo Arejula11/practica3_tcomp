@@ -1,0 +1,15 @@
+acum:=5
+acum
+=5
+acum+4
+=9
+acum-3
+=2
+acum:=6/2
+acum
+=3
+acum:=acum+acum
+acum
+=6
+acum+2
+=8

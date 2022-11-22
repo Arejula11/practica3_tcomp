@@ -1,4 +1,4 @@
-/* calcMejor.y fichero para la practica 3 de Teoria de la Computacion   */
+/* Pablo Angusto Delgado 842255 y Miguel Aréjula Aísa 850068 */
 %{
 #include <stdio.h>
 %}
@@ -6,8 +6,8 @@
 %start S
 %%
 
-S :  C x S
-    |
+S :  
+    | C x S
     ;
 B :  x C y
     | x C
@@ -18,7 +18,7 @@ C :  x B x
 
 %%
 int yyerror(char* s) {
-   printf("\n%s\n", s);
+   printf("%s\n", s);
    return 0;
 }
 
