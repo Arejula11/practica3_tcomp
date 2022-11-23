@@ -13,8 +13,8 @@ int b;
 
 calclist : /* nada */
     | calclist defvar
-    | calclist exp PC EOL { printf("\n=%d\n", $2); }
-    | calclist exp PC VAR EOL { printf("\n=%d\n", funcion($2, b)); }
+    | calclist exp PC EOL { printf("=%d\n", $2); }
+    | calclist exp PC VAR EOL { printf("=%d\n", funcion($2, b)); }
 	;
 exp :  factor 
 	| exp ADD factor { $$ = $1 + $3; }
@@ -28,7 +28,7 @@ factorsimple : 	OP exp CP { $$ = $2; }
 		| NUMBER 
         | PC 
 		;
-defvar :  VAR EQ NUMBER EOL { b = $3;printf("\n");}
+defvar :  VAR EQ NUMBER EOL { b = $3;}
 %%
 int yyerror(char* s) {
    printf("\n%s\n", s);
@@ -44,7 +44,7 @@ int funcion(int num ,int b){
         i++;
     }
 
-    for(int j=i; j>=0; j--){
+    for(int j=i-1; j>=0; j--){
         long aux=1;
         for(int x=j; x>0; x--){
            aux=10*aux;

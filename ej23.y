@@ -11,7 +11,7 @@ int acum;
 %%
 
 calclist : /* nada */
-    | calclist exp EOL { printf("\n=%d\n", $2); }
+    | calclist exp EOL { printf("=%d\n", $2); }
 	| calclist defvar 
 	| calclist EOL 
     
@@ -28,7 +28,7 @@ factorsimple : 	OP exp CP { $$ = $2; }
         | NUMBER
 		| VAR { $$ = acum;}
 		;
-defvar :  VAR PP EQ exp EOL{ acum = $4;printf("\n");}
+defvar :  VAR PP EQ exp EOL{ acum = $4;}
 %%
 int yyerror(char* s) {
    printf("\n%s\n", s);
