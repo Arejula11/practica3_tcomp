@@ -11,7 +11,7 @@
 ")"	{return(CP);}
 "=" {return(EQ);}
 [0-9]+	{yylval = atoi(yytext); return(NUMBER);}
-[a-z]+  {return(VAR);}
+"b"  {return(VAR);}
 \n	{return(EOL);}
 [ \t]	{/* ignorar espacios */}
 .	{return(yytext[0]); /* caracter inesperado */}
